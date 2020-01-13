@@ -40,7 +40,7 @@ public class ContatoDao {
 	public List<Contato> getLista() {
 		try {
 			List<Contato> contatos = new ArrayList<Contato>();
-			PreparedStatement stmt = this.connection.prepareStatement("select * from contatos where nome like 'C%'");
+			PreparedStatement stmt = this.connection.prepareStatement("select * from contatos");
 			ResultSet rs = stmt.executeQuery();
 			
 			while(rs.next()) {
