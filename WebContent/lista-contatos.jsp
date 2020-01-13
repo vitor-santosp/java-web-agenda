@@ -10,7 +10,7 @@
 </head>
 	<body>
 		<c:import url="cabecalho.jsp"/>
-		<jsp:useBean id="dao" class="br.com.caelum.jdbc.dao.ContatoDao"/>
+		<jsp:useBean id="dao" class="br.com.caelum.jdbc.dao.ContatoDao"/>		
 		<table border="1">
 			<c:forEach var="contato" items="${dao.lista}" varStatus="num">
 				<tr>
@@ -30,7 +30,8 @@
 						</c:choose>
 					</td>
 					<td>${contato.endereco}</td>
-					<td>${contato.datanascimento.time}</td>
+					<td><fmt:formatDate value="${contato.datanascimento.time}"
+					pattern="dd/MM/yyyy"/></td>
 				</tr>
 			</c:forEach>
 		</table>
