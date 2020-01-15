@@ -9,10 +9,9 @@
 <title>Listing test</title>
 </head>
 	<body>
-		<c:import url="cabecalho.jsp"/>
-		<jsp:useBean id="dao" class="br.com.caelum.jdbc.dao.ContatoDao"/>		
+		<c:import url="cabecalho.jsp"/>	
 		<table border="1">
-			<c:forEach var="contato" items="${dao.lista}" varStatus="num">
+			<c:forEach var="contato" items="${contatos}" varStatus="num">
 				<tr>
 					<th>Nome</th>
 					<th>Email</th>
@@ -32,6 +31,7 @@
 					<td>${contato.endereco}</td>
 					<td><fmt:formatDate value="${contato.datanascimento.time}"
 					pattern="dd/MM/yyyy"/></td>
+					<td><a href="mvc?logic=RemoveContatoLogic&id=${contato.id}">Remover</a></td>
 				</tr>
 			</c:forEach>
 		</table>
