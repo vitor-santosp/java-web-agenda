@@ -17,6 +17,8 @@
 					<th>Email</th>
 					<th>Endereco</th>
 					<th>Data Nascimento</th>
+					<th>Remover</th>
+					<th>Alterar</th>
 				</tr>
 				<tr bgcolor="#${num.count % 2 == 0 ? 'aaee88' : 'C71585'} ">
 					<td>${contato.nome}</td>
@@ -32,6 +34,9 @@
 					<td><fmt:formatDate value="${contato.datanascimento.time}"
 					pattern="dd/MM/yyyy"/></td>
 					<td><a href="mvc?logic=RemoveContatoLogic&id=${contato.id}">Remover</a></td>
+					<td><a href="mvc?logic=RedirecionaAlteracaoLogic&nome=${contato.nome}&email=
+					${contato.email}&endereco=${contato.endereco}&nascimento=<fmt:formatDate value="${contato.datanascimento.time}"
+					pattern="dd/MM/yyyy"/>&id=${contato.id}">Alterar</a></td>
 				</tr>
 			</c:forEach>
 		</table>
