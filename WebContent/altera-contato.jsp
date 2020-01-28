@@ -22,7 +22,7 @@
 	<h1>Change Contact ${contatoAlteracao.nome}</h1>
 	
 	<hr/>
-	<form action="adicionaContato">
+	<form action="mvc?logic=AlteraContatoLogic">
 		Nome: <input type="text" name="nome" value="${contatoAlteracao.nome}" /> <br/>
 		E-mail: <input type="text" name="email" value="${contatoAlteracao.email}" /> <br/>
 		Endereço: <input type="text" name="endereco" value="${contatoAlteracao.endereco}" /> <br/>
