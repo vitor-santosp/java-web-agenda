@@ -24,12 +24,12 @@ public class ControllerServlet extends HttpServlet {
 	ServletException, IOException {
 		String param = request.getParameter("logic");
 		String className = "br.com.caelum.mvc.logica." + param;
-		if("RedirecionaAlteracaoLogic".equals(param)) {
+		if("RedirecionaAlteracaoLogic".equals(param) && null != request.getParameter("idcontato")) {
 			Contato contato = new Contato();
 			contato.setNome(request.getParameter("nome"));
 			contato.setEmail(request.getParameter("email"));
 			contato.setEndereco(request.getParameter("endereco"));
-			contato.setId(Long.valueOf((request.getParameter("id"))));
+			contato.setId(Long.valueOf((request.getParameter("idcontato"))));
 			try {
 				String stringDate=request.getParameter("nascimento");
 				SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -45,7 +45,6 @@ public class ControllerServlet extends HttpServlet {
 		
 		}
 		try {
-			
 			Class<?> classe = Class.forName(className);
 			Logica logica = (Logica) classe.newInstance();
 			String pagina = logica.executa(request, response);

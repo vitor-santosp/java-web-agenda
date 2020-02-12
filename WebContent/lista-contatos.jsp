@@ -7,9 +7,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Listing test</title>
+<style>.blue-button {background-color: #008CBA;border-radius: 1px;"}/</style>
 </head>
+
 	<body>
-		<c:import url="cabecalho.jsp"/>	
+		<c:import url="cabecalho.jsp"/>
+		<button class="blue-button" onclick="location.href='http://localhost:8080/fj21-agenda/mvc?logic=RedirecionaAlteracaoLogic'" type="button">
+         Cadastrar</button>
+		<hr>	
 		<table border="1">
 			<c:forEach var="contato" items="${contatos}" varStatus="num">
 				<tr>
@@ -35,7 +40,7 @@
 					pattern="dd/MM/yyyy"/></td>
 					<td><a href="mvc?logic=RemoveContatoLogic&id=${contato.id}">Remover</a></td>
 					<td><a href="mvc?logic=RedirecionaAlteracaoLogic&nome=${contato.nome}&email=
-					${contato.email}&endereco=${contato.endereco}&nascimento=<fmt:formatDate value="${contato.datanascimento.time}"
+					${contato.email}&endereco=${contato.endereco}&idcontato=${contato.id}&nascimento=<fmt:formatDate value="${contato.datanascimento.time}"
 					pattern="dd/MM/yyyy"/>&id=${contato.id}">Alterar</a></td>
 				</tr>
 			</c:forEach>

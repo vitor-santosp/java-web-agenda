@@ -10,7 +10,7 @@ public class ConnectionFactory {
 		try {
 			DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 			return DriverManager.getConnection(
-					"jdbc:mysql://localhost/fj21?useTimezone=true&serverTimezone=UTC", "root", "");
+					"jdbc:mysql://localhost/fj21?useTimezone=true&serverTimezone=UTC", "root", "123456");
 		} catch (SQLException e){
 			throw new RuntimeException(e);
 		}

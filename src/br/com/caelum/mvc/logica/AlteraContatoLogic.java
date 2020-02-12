@@ -20,12 +20,20 @@ public class AlteraContatoLogic implements Logica {
 		contato.setNome(request.getParameter("nome"));
 		contato.setEmail(request.getParameter("email"));
 		contato.setEndereco(request.getParameter("endereco"));
+		if(null != request.getParameter("idcontato"))
+			contato.setId(Long.valueOf((request.getParameter("idcontato"))));
 		Date dataAlterada =  new SimpleDateFormat("dd/MM/yyy").parse(request.getParameter("dataNascimento"));
 		Calendar dataNascimento = Calendar.getInstance();
 		dataNascimento.setTime(dataAlterada);
 		contato.setDatanascimento(dataNascimento);
 		try {
-			dao.alteraContato(contato);
+			if(null != contato.getId()) {
+				dao.alteraContato(contato);
+			}else {
+				dao.adiciona(contato);
+				return "contato-adicionado.jsp";
+			}
+			
 		} catch (Exception e) {
 			throw new DAOException();
 		}

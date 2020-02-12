@@ -22,12 +22,14 @@
 	<h1>Change Contact ${contatoAlteracao.nome}</h1>
 	
 	<hr/>
-	<form action="mvc?logic=AlteraContatoLogic">
+	<form action="mvc">
 		Nome: <input type="text" name="nome" value="${contatoAlteracao.nome}" /> <br/>
 		E-mail: <input type="text" name="email" value="${contatoAlteracao.email}" /> <br/>
 		Endereço: <input type="text" name="endereco" value="${contatoAlteracao.endereco}" /> <br/>
 		Data Nascimento: <input type="text" id="dataNascimento" name="dataNascimento" value="<fmt:formatDate value="${contatoAlteracao.datanascimento.time}"
 		pattern="dd/MM/yyyy"/>"/>
+		<input type="hidden" name="logic" value="AlteraContatoLogic"/>
+		<input type="hidden" name="idcontato" value="${contatoAlteracao.id}"/>
 		<input type="submit" value="Gravar" />
 	</form>
 	<c:import url="rodape.jsp" />
